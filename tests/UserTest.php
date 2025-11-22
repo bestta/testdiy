@@ -1,7 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../functions/user_functions.php'; // login dan validasi user
+require_once __DIR__ . '/../functions/user_functions.php'; // coba login dan validasi user
 
 class UserTest extends TestCase
 {
