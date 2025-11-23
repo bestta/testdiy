@@ -91,6 +91,9 @@ while ($row = $result2->fetch_assoc()) {
       ⚙️ Menu Manajemen Sistem
     </div>
     <div class="card-body d-flex flex-wrap gap-3">
+      <a href="admin_dashboard.php" class="btn btn-outline-warning btn-lg">
+        📈 Dashboard
+      </a>
       <a href="users.php" class="btn btn-outline-primary btn-lg">
         👤 Kelola Users
       </a>
