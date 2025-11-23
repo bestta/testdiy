@@ -178,18 +178,16 @@ $totalPages = ceil($totalData / $limit);
 
 
 
-  <table class="table table-bordered table-striped table-hover align-middle">
-    <tr class="table-primary text-center">
+  <div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover align-middle mb-0">
     <thead class="table-primary text-center">
+      <tr>
         <th>No</th>
         <th>Username</th>
         <th>Email</th>
-        <!-- <th>Password (hash)</th> -->
         <th>Role</th>
-        <!-- <th>Created</th>
-        <th>Updated</th> -->
         <th>Aksi</th>
-    </tr>
+      </tr>
     </thead>
     <tbody>
       <?php
@@ -197,23 +195,20 @@ $totalPages = ceil($totalData / $limit);
       $result = $conn->query("SELECT * FROM users ORDER BY id DESC LIMIT $start, $limit");
       while ($row = $result->fetch_assoc()):
       ?>
-<tr>
-  <td class="text-center"><?php echo $no++; ?></td>
-  <td><?php echo htmlspecialchars($row['username']); ?></td>
-  <td><?php echo htmlspecialchars($row['email']); ?></td>
-  <!-- <td><code><?php echo htmlspecialchars(substr($row['password'], 0, 2)); ?>*****</code></td> -->
-  <td><?php echo htmlspecialchars($row['role']); ?></td>
-  <td class="text-center">
-    <a href="?edit=<?php echo $row['id']; ?>" class="btn btn-sm btn-warning">Edit</a>
-    <a href="?delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger"
-       onclick="return confirm('Yakin ingin menghapus user ini?');">Hapus</a>
-  </td>
-</tr>
-<?php
-endwhile;
-?>
+      <tr>
+        <td class="text-center"><?php echo $no++; ?></td>
+        <td class="text-break"><?php echo htmlspecialchars($row['username']); ?></td>
+        <td class="text-break"><?php echo htmlspecialchars($row['email']); ?></td>
+        <td class="text-center"><?php echo htmlspecialchars($row['role']); ?></td>
+        <td class="text-center">
+          <a href="?edit=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
+          <a href="?delete=<?php echo $row['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus user ini?');">Hapus</a>
+        </td>
+      </tr>
+      <?php endwhile; ?>
     </tbody>
   </table>
+</div>
 
   <!-- Pagination -->
   <nav aria-label="Page navigation">
